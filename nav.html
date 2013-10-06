@@ -1,0 +1,87 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>无标题文档</title>
+<style type="text/css">
+#space{ height:5px;}
+
+#nav{ position:relative; width:100%; height:45px; overflow:hidden;}
+#nav{ border:solid 1px red;}
+#nav ul{ list-style-type:none; position:relative; margin:0px; padding:0px;}
+#nav ul li{float:left; display:inline; font-weight:bold;}
+#nav ul li a,#arrows ul li span{ display:block; padding:4px; margin-right:4px; text-align:center; font-weight:bold;}
+#nav ul li a{text-decoration:none; color:#FFFFFF; background-color:#000000; border-bottom:solid 1px #666666;}
+#nav ul li a:hover{background-color:#666666; border-bottom-color:#666666;}
+#nav .sectionBorder{background-color:#666666; width:100%; height:1px; position:absolute; top:28px;}
+#nav .clear{ clear:both;}
+#nav #tab .active{ background-color:#418FDE; border-bottom-color:#418FDE;}
+#nav #arrows{ position:relative;}
+#nav #arrows ul li span{height:8px; line-height:50px; overflow:hidden;}
+#nav #arrows .active{background:url(nav_arrows.png) no-repeat 50% -10px; }
+
+#item{ position:relative; top:0px; left:0px; }
+#item{ border:solid 1px blue;}
+#item ul{ list-style-type:none; position:relative; margin:0px; padding:0px;}
+#item ul li{ float:left; font-weight:bold; margin-right:10px;}
+#item ul li a { text-decoration:none;}
+#item .clear{ clear:both;}
+#item .active{color:#418FDE; cursor:default;}
+</style>
+</head>
+<body>
+<div id="space"></div>
+<div id="nav"> <span class="sectionBorder"></span>
+  <div id="tab">
+    <ul>
+      <li><a href="#" class="active">Dashboard</a></li>
+      <li><a href="#">Keywords</a></li>
+      <li><a href="#">Campaign&nbsp;Activity</a></li>
+      <li><a href="#">My&nbsp;Ads</a></li>
+      <li><a href="#">Call&nbsp;Tracking</a></li>
+      <li><a href="#">Email&nbsp;Tracking</a></li>
+    </ul>
+  </div>
+  <div class="clear"></div>
+  <div id="arrows">
+    <ul>
+      <li><span class="active">Dashboard</span></li>
+      <li><span>Keywords</span></li>
+      <li><span>Campaign&nbsp;Activity</span></li>
+      <li><span>My&nbsp;Ads</span> </li>
+      <li><span>Call&nbsp;Tracking</span></li>
+      <li><span>Email&nbsp;Tracking</span></li>
+    </ul>
+    <div class="clear"></div>
+  </div>
+</div>
+<div id="space"></div>
+<div id="item">
+  <ul>
+    <li><a href="#" onclick="changeSubnav(this); return false;" class="active">Campaign Performance</a></li>
+    <li>|</li>
+    <li><a href="#" onclick="changeSubnav(this); return false;">Keyword Performance</a></li>
+	<li>|</li>
+    <li><a href="#" onclick="changeSubnav(this); return false;">Keyword Performance</a></li>
+	<li>|</li>
+    <li><a href="#" onclick="changeSubnav(this); return false;">Keyword Performance</a></li>
+  </ul>
+  <div class="clear"></div>
+</div>
+<script type="text/javascript">
+function changeSubnav(obj){
+	if(obj.className && obj.className == 'active'){
+		return;
+	}
+	var as = document.getElementById("item").getElementsByTagName("a");
+	for(var i=0;i<as.length;i++){
+		if(as[i].className){
+			as[i].className="";
+			break;
+		}
+	}
+	obj.className="active";
+}
+</script>
+</body>
+</html>

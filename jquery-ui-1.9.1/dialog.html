@@ -1,0 +1,76 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+		<title>无标题文档</title>
+		<link href="jquery-ui-1.9.1.custom.css" rel="stylesheet" />
+		<script src="jquery-1.8.2.js"></script>
+		<script src="jquery-ui-1.9.1.custom.js"> </script>
+		<script type="text/javascript">
+			$(document).ready(function() {
+				var um = $("#um");
+				var pm = $("#pm");
+				var u = $("#username");
+				var p = $("#password");
+				um.focus(function() {
+					$(this).hide();
+					u.show().focus();
+				});
+				u.blur(function() {
+					if (!u.val()) {
+						um.show();
+						u.hide();
+					}
+				});
+				pm.focus(function() {
+					$(this).hide();
+					p.show().focus();
+				});
+				p.blur(function() {
+					if (!p.val()) {
+						pm.show();
+						p.hide();
+					}
+				});
+				$("#open").click(function() {
+					$("#main").dialog({
+						height : 300,
+						width : 400,
+						modal : true,
+						resize : false,
+					});
+					$("input").blur();
+				});
+				p.hide();
+				u.hide();
+				pm.val("password");
+				um.val("user name");
+				$("#main").hide();
+
+				$("input").blur();
+			});
+		</script>
+	</head>
+
+	<body>
+		<a id="open" href="#">open</a>
+
+		<div id="main" title="Login">
+			<a id="close" href="#">Close</a>
+			<a id="move" href="#">Move</a>
+			<form id="form1" name="form1" method="post" action="#">
+				<p>
+					Username:
+					<input id="um" type="text"  />
+					<input id="username" type="text" name="username" />
+				</p>
+				<p>
+					Password:
+					<input id="pm" type="text"  />
+					<input id="password" type="password" name="password" />
+				</p>
+				<a id="login" href="#">Login</a>
+			</form>
+		</div>
+	</body>
+</html>

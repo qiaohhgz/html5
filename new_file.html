@@ -1,0 +1,30 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN"
+"http://www.w3.org/TR/html4/strict.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en">
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+		<title>new_file</title>
+		<meta name="author" content="Jim_qiao" />
+		<!-- Date: 2012-12-06 -->
+
+		<script type="text/javascript">
+			function goPage() {
+				var o = document.getElementById("link");
+				o.onclick = "";
+				o.href = "http://www.baidu.com";
+				o.click();
+			}
+			function test(){
+				var o = document.getElementById("link2");
+				o.click();
+			}
+		</script>
+	</head>
+	<body>
+		<a id="link" href="#" onclick="goPage(); return false" target="_blank">go1</a>
+		<a href="#" onclick="test();">go2</a>
+		<a id="link2" href="http://www.baidu.com" target="_blank">go3</a>
+	</body>
+</html>
+

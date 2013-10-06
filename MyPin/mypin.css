@@ -1,0 +1,22 @@
+#bg {z-index:2147483641; position: absolute; top:0; right:0; bottom:0; left:0; background-color:#f2f2f2; opacity:.95; width: 100%; }
+#bd {z-index:2147483642; position: absolute; text-align: center; width: 100%; top: 0; left: 0; right: 0; font:16px hevetica neue,arial,san-serif; }
+#bd #hd { z-index:2147483643; -moz-box-shadow: 0 1px 2px #aaa; -webkit-box-shadow: 0 1px 2px #aaa; box-shadow: 0 1px 2px #aaa; position: fixed; *position:absolute; width:100%; top: 0; left: 0; right: 0; height: 45px; line-height: 45px; font-size: 14px; font-weight: bold; display: block; margin: 0; background: #fbf7f7; border-bottom: 1px solid #aaa; }
+#bd #hd.noHeader { height: 1px; background-color:#f2f2f2; -moz-box-shadow: none; -webkit-box-shadow: none; box-shadow: none; border: none; }
+#bd #hd a#x { display: inline-block; cursor: pointer; color: #524D4D; line-height: 45px; text-shadow: 0 1px #fff; float: right; text-align: center; width: 100px; border-left: 1px solid #aaa; }
+#bd #hd a#x:hover { color: #524D4D; background: #e1dfdf; text-decoration: none; }
+#bd #hd a#x:active { color: #fff; background: #cb2027; text-decoration: none; text-shadow:none;}
+#bd #hd #logo {height: 43px; width: 100px; display: inline-block; margin-right: -100px; background: transparent url(http://passets-cdn.pinterest.com/images/LogoRed.png) 50% 50% no-repeat; border: none;}
+@media only screen and (-webkit-min-device-pixel-ratio: 2) { #bd #hd #logo {background-size: 100px 26px; background-image: url(http://passets-cdn.pinterest.com/images/LogoRed.2x.png); } }
+#bd #spacer { display: block; height: 50px; }
+#bd span.pinContainer { height:200px; width:200px; display:inline-block; background:#fff; position:relative; -moz-box-shadow:0 0  2px #555; -webkit-box-shadow: 0 0  2px #555; box-shadow: 0 0  2px #555; margin: 10px; }
+#bd span.pinContainer { zoom:1; *border: 1px solid #aaa; }
+#bd span.pinContainer img { margin:0; padding:0; border:none; }
+#bd span.pinContainer span.img, #bd span.pinContainer span.play { position: absolute; top: 0; left: 0; height:200px; width:200px; overflow:hidden; }
+#bd span.pinContainer span.play { background: transparent url(http://passets-cdn.pinterest.com/images/bm/play.png) 50% 50% no-repeat; }
+#bd span.pinContainer cite, #bd span.pinContainer cite span { position: absolute; bottom: 0; left: 0; right: 0; width: 200px; color: #000; height: 22px; line-height: 24px; font-size: 10px; font-style: normal; text-align: center; overflow: hidden; }
+#bd span.pinContainer cite span.mask { background:#eee; opacity:.75; *filter:alpha(opacity=75); }
+#bd span.pinContainer cite span.behance { background: transparent url(http://passets-cdn.pinterest.com/images/attrib/behance.png) 180px 3px no-repeat; }
+#bd span.pinContainer a { text-decoration:none; background:transparent url(http://passets-cdn.pinterest.com/images/bm/button.png) 60px 300px no-repeat; cursor:pointer; position:absolute; top:0; left:0; height:200px; width:200px; }
+#bd span.pinContainer a { -moz-transition-property: background-color; -moz-transition-duration: .25s; -webkit-transition-property: background-color; -webkit-transition-duration: .25s; transition-property: background-color; transition-duration: .25s; }
+#bd span.pinContainer a:hover { background-position: 60px 80px; background-color:rgba(0, 0, 0, 0.5); }
+#bd span.pinContainer a.hideMe { background: rgba(128, 128, 128, .5); *background: #aaa; *filter:alpha(opacity=75); line-height: 200px; font-size: 10px; color: #fff; text-align: center; font-weight: normal!important; }

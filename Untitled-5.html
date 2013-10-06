@@ -1,0 +1,25 @@
+<html>
+<head>
+<title>JQuery学习</title>
+<script src="jquery-1.8.2.min.js" type="text/javascript"></script>
+<script type="text/javascript">
+$(document).ready(function(){
+    var oBtnTest = $("#btnTest");
+    oBtnTest.click(function(){
+        oBtnTest.disabled = true;    
+        var oResult = $("#result");
+        oResult.html("loading").css("color","red");
+        jQuery.getScript("http://172.20.230.58:9000/blog/public/javascripts/test.js", 
+        function(){            
+            oResult.html("name:" + jimmy.name + "<br/>email:" + jimmy.email).css("color","black");            
+            oBtnTest.disabled = false;            
+        });         
+    });    
+});    
+</script>
+</head>
+<body>
+<button id="btnTest">BtnTest</button>
+<div id="result"></div>
+</body>
+</html>

@@ -1,0 +1,26 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>无标题文档</title>
+<script id="jquery" src="js/jquery-1.8.2.js"></script>
+<script type="text/javascript">
+function show(){
+$("#jquery")
+}
+function test(){
+$("#content").append(" jquery");
+}
+function del(){
+$("[src$='1.8.2.js']").attr("src","test.js");
+}
+</script>
+</head>
+
+<body>
+<button onclick="show()">show</button>
+<button onclick="del()">delete</button>
+<button onclick="test()">test</button>
+<p id="content">Hello</p>
+</body>
+</html>

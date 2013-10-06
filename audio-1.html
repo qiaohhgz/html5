@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8" />
+
+		<!-- Always force latest IE rendering engine (even in intranet) & Chrome Frame
+		Remove this if you use the .htaccess -->
+		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+
+		<title>audio-1</title>
+		<meta name="description" content="" />
+		<meta name="author" content="JimQiao" />
+
+		<meta name="viewport" content="width=device-width; initial-scale=1.0" />
+
+		<!-- Replace favicon.ico & apple-touch-icon.png in the root of your domain and delete these references -->
+		<link rel="shortcut icon" href="/favicon.ico" />
+		<link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+		<script type="text/javascript">
+			
+			function onstop(){
+				alert("1");
+				var l = "C:/Users/Jim_qiao/Desktop/music/如果爱忘了.mp3";
+				document.getElementById("music").src=l;
+			}
+		</script>
+	</head>
+
+	<body>
+		<div>
+			<header>
+				<h1>audio-1</h1>
+			</header>
+			<nav>
+				<p>
+					<a href="/">Home</a>
+				</p>
+			</nav>
+			
+			<div>
+				<audio controls="controls" autoplay="autoplay" preload="preload" ononwaiting="onstop()">
+					<source id="music" src="source/同桌的你.mp3" type="audio/mp3">
+					Your browser does not support the audio element.
+				</audio>
+			</div>
+
+			<footer>
+				<p>
+					&copy; Copyright  by JimQiao
+				</p>
+			</footer>
+		</div>
+	</body>
+</html>

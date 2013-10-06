@@ -1,0 +1,54 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>Accoridon</title>
+<link rel="stylesheet" href="css/smoothness/jquery-ui-1.9.1.custom.min.css">
+<script src="js/jquery-1.8.2.min.js"></script>
+<script src="js/jquery-ui-1.9.1.custom.min.js"></script>
+<script type="text/javascript">
+	$(function() {
+		$("#nav").accordion({active:0,collapsible:true});
+		$(".addPage").button().click(function(){
+			var active = $("#nav").accordion("option","active");
+			var size = $("#nav > h3").length + 1;
+			$("#nav").append("<h3>Section "+size+"</h3><div>adfsdafsadfsfsfs</div>");
+			$("#nav").accordion("destroy");
+			$("#nav").accordion({active:active,collapsible:true});
+		});
+		
+	});
+</script>
+</head>
+<body>
+<span class="addPage">add</span>
+<div id="nav">
+  <h3>Section 1</h3>
+  <div>
+    <p> <h3>Mauris</h3> mauris ante, blandit et, ultrices a, suscipit eget, quam. Integer
+      ut neque. Vivamus nisi metus, molestie vel, gravida in, condimentum sit
+      amet, nunc. Nam a nibh. Donec suscipit eros. Nam mi. Proin viverra leo ut
+      odio. Curabitur malesuada. Vestibulum a velit eu ante scelerisque vulputate. </p>
+  </div>
+  <h3>Section 2</h3>
+  <div>
+    <p> Sed non urna. Donec et ante. Phasellus eu ligula. Vestibulum sit amet
+      purus. Vivamus hendrerit, dolor at aliquet laoreet, mauris turpis porttitor
+      velit, faucibus interdum tellus libero ac justo. Vivamus non quam. In
+      suscipit faucibus urna. </p>
+  </div>
+  <h3>Section 3</h3>
+  <div>
+    <p> Nam enim risus, molestie et, porta ac, aliquam ac, risus. Quisque lobortis.
+      Phasellus pellentesque purus in massa. Aenean in pede. Phasellus ac libero
+      ac tellus pellentesque semper. Sed ac felis. Sed commodo, magna quis
+      lacinia ornare, quam ante aliquam nisi, eu iaculis leo purus venenatis dui. </p>
+    <ul>
+      <li>List item one</li>
+      <li>List item two</li>
+      <li>List item three</li>
+    </ul>
+  </div>
+</div>
+</body>
+</html>

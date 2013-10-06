@@ -1,0 +1,43 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>无标题文档</title>
+<script src="jquery-1.8.2.min.js" type="text/javascript"></script>
+<script type="text/javascript">
+$(document).ready(function(){
+var p = $("p");
+
+$("#html").click(function(){
+	p.html("<b>Hello jQuery</b>");
+});
+	
+$("#prepend").click(function(){
+	p.prepend("prepend ");
+});
+
+$("#append").click(function(){
+	p.append(" append");
+});
+
+$("#before").click(function(){
+	p.before("<p>Hello before</p>");
+});
+
+$("#after").click(function(){
+	p.after("<p>Hello after</p>");
+});
+
+});
+</script>
+</head>
+
+<body>
+<a id="html" href="#">html</a>
+<a id="prepend" href="#">prepend</a>
+<a id="append" href="#">append</a>
+<a id="before" href="#">before</a>
+<a id="after" href="#">after</a>
+<p>Hello</p>
+</body>
+</html>

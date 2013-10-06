@@ -1,0 +1,45 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>无标题文档</title>
+<style type="text/css">
+#bg {z-index:100; position: absolute; top:0; right:0; bottom:0; left:0; background-color:#757575; opacity:.95; width: 100%; }
+#main {z-index:101;position: absolute; top:0; right:0; bottom:0; left:0; margin:auto auto}
+#chat-room {}
+#chat-room .lefter { float:left; width:140px; height:400px; border-right:1px solid #ccc; overflow-y:scroll; }
+#chat-room .lefter h2 { background:#fafafa; border-bottom:1px solid #eee; font-size:14px; line-height:24px; text-align:center; }
+#chat-room .lefter ul li { line-height:24px; padding:10px; }
+#chat-room .lefter ul li a{ display:block; background:url(../images/bg.png) -231px -152px no-repeat; padding-left:20px; }
+#chat-room .righter { float:right; width:445px; display:inline; margin:5px; }
+#chat-room .righter #history { height:320px; border:1px solid #ccc; padding:5px; overflow-y:scroll; }
+#chat-room .righter .reply .text { border:1px solid #ccc; width:380px; margin-right:5px; padding:4px; vertical-align:middle; }
+#chat-room .righter .reply label { vertical-align:middle; }
+#news .content { font-size:14px; line-height:30px; padding:15px; }
+</style>
+
+</head>
+
+<body>
+
+<div id="chat-room">
+	<div class="lefter">
+		<h2>在线用户列表</h2>
+		<ul>
+			<li><a href="#" onclick="setReceiver(this);">张三</a></li>
+		</ul>
+	</div>
+	<div class="righter">
+		<div id="history">
+			<p>aaa</p>
+			<p>aaa</p>
+		</div>
+		<div class="spacer"></div>
+		<div id="reply-to">接收人：所有</div>
+		<div class="reply">
+			<input type="text" class="text" name="content" /><label class="ui-blue"><input type="button" value="发送" /></label>
+		</div>
+	</div>
+</div>
+</body>
+</html>

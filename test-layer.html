@@ -1,0 +1,36 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>无标题文档</title>
+<script src="layer-v1.4.1/layer/jquery-1.8.2.min.js" type="text/javascript"></script>
+<script src="layer-v1.4.1/layer/layer.js" type="text/javascript"></script>
+</head>
+
+<body>
+<a href="#" id="show">show</a>
+<div id="main">
+<form id="form1" name="form1" method="post" action="">
+  <input type="text" name="textfield" onfocus="this.value=''" onblur="this.value='user name'" value="user name" />
+  <input type="text" name="textfield2" onfocus="this.value=''" onblur="this.value='user password'" value="user password" />
+  <input type="submit" name="Submit" value="提交" />
+</form>
+</div>
+<script type="text/javascript">
+$.layer({
+    shade : ['',false],
+    type : 1,
+    area : ['315px','auto'],
+    offset : ['300px',''],
+    border : [10 , 0.5 , '#628C1C', true],
+    page : {dom : '#main'},
+    close : function(index){
+        LAYER.close(index);
+        $('#show').show();	
+    }
+});
+</script>
+
+</body>
+</html>

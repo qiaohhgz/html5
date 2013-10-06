@@ -1,0 +1,106 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>无标题文档</title>
+<style type="text/css">
+#menu{position:relative;}
+#menu ul{margin:0px; padding:0px;}
+#menu ul li{ float:left; list-style-type:none; margin-left:5px; padding:0px;}
+#menu ul li a,#menu ul li span{display:block;padding:5px;margin-right:2px; text-align:center; font-weight:bold;}
+#menu ul li a{text-decoration:none; color:#FFFFFF; background-color:#000000;}
+#menu ul li a:hover{background-color:#666666;}
+#menu ul li span{ height:6px; line-height:50px; overflow:hidden;}
+#menu .current{background-color:#418FDE;}
+#menu .fontCurrent{color:#418FDE;}
+#menu .arrows{ background:url(nav_arrows.png) no-repeat 50% -10px;}
+#menu .clear{clear:both;}
+#menu .hr{border-bottom:solid 1px gray;}
+
+#space{ height:50px;}
+
+#nav{position:relative; width:100%; height:70px; top:5px;}
+#nav ul{ list-style-type:none; position:relative; margin:0px; padding:0px;}
+#nav ul li{float:left; display:inline; font-weight:bold;}
+#nav ul li a,#arrows ul li span{ display:block; padding:4px; margin-right:4px; text-align:center; }
+#nav ul li a{text-decoration:none; color:#FFFFFF; background-color:#000000; border-bottom:solid 1px #666666;}
+#nav ul li a:hover{background-color:#666666; border-bottom-color:#666666;}
+#nav .sectionBorder{background-color:#666666; width:100%; height:1px; position:absolute; top:28px;}
+#nav .clear{ clear:both;}
+#nav #tab,#nav #arrows,#nav #item{margin-left:7px;}
+#nav #tab .active{ background-color:#418FDE; border-bottom-color:#418FDE;}
+#nav #arrows{ position:relative;}
+#nav #arrows ul li span{height:8px; line-height:50px; overflow:hidden;}
+#nav #arrows .active{background:url(nav_arrows.png) no-repeat 50% -10px; }
+#nav #item .active{color:#418FDE;}
+#nav #item ul li{ margin-right:10px;}
+</style>
+</head>
+<body>
+<div id="menu">
+  <ul>
+    <li><a href="#" class="current">Dashboard</a></li>
+    <li><a href="#">Keywords</a></li>
+    <li><a href="#">Campaign&nbsp;Activity</a></li>
+    <li><a href="#">My&nbsp;Ads</a></li>
+    <li><a href="#">Call&nbsp;Tracking</a></li>
+    <li><a href="#">Email&nbsp;Tracking</a></li>
+  </ul>
+  <div class="clear hr"></div>
+  <ul>
+    <li><span class="arrows">Dashboard</span></li>
+    <li><span>Keywords</span></li>
+    <li><span>Campaign&nbsp;Activity</span></li>
+    <li><span>My&nbsp;Ads</span> </li>
+    <li><span>Call&nbsp;Tracking</span></li>
+    <li><span>Email&nbsp;Tracking</span></li>
+  </ul>
+  <div class="clear"></div>
+  <div>
+    <ul>
+      <li class="fontCurrent">Campaign Performance</li>
+      <li>|</li>
+      <li>Keyword Performance</li>
+    </ul>
+  </div>
+  <div class="clear"></div>
+</div>
+
+<div class="clear"></div>
+<div id="space"></div>
+<div class="clear"></div>
+
+<div id="nav"> <span class="sectionBorder"></span>
+  <div id="tab">
+    <ul>
+      <li><a href="#" class="active">Dashboard</a></li> 
+      <li><a href="#">Keywords</a></li>
+      <li><a href="#">Campaign&nbsp;Activity</a></li>
+      <li><a href="#">My&nbsp;Ads</a></li>
+      <li><a href="#">Call&nbsp;Tracking</a></li>
+      <li><a href="#">Email&nbsp;Tracking</a></li>
+    </ul>
+  </div>
+  <div class="clear"></div>
+  <div id="arrows">
+    <ul>
+      <li><span class="active">Dashboard</span></li>
+      <li><span>Keywords</span></li>
+      <li><span>Campaign&nbsp;Activity</span></li>
+      <li><span>My&nbsp;Ads</span> </li>
+      <li><span>Call&nbsp;Tracking</span></li>
+      <li><span>Email&nbsp;Tracking</span></li>
+    </ul>
+  </div>
+  <div class="clear"></div>
+  <div id="item">
+    <ul>
+      <li class="active">Campaign Performance</li>
+      <li>|</li>
+      <li>Keyword Performance</li>
+    </ul>
+  </div>
+  <div class="clear"></div>
+</div>
+</body>
+</html>
