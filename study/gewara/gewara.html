@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>格瓦拉换了抽奖脚本</title>
+</head>
+
+<script type="text/javascript">
+    window.click_showCapt_time = 17 * 60 * 1000;
+    window.click_closeBox_time = 15 * 1000;
+    window.click_showCapt = function () {
+        showCapt();
+        console.log("click show capt.");
+        window.setTimeout(window.click_closeBox, click_closeBox_time);
+    };
+    window.click_closeBox = function () {
+        var result = document.getElementById("giftT").innerHTML;
+        console.log("result = " + result);
+        closeBox();
+        console.log("click close box.");
+    };
+    window.click_showCapt();
+    window.setTimeout(window.click_closeBox, click_closeBox_time);
+    console.log("start auto click...");
+    window.myTime = window.setInterval(window.click_showCapt, window.click_showCapt_time);
+    console.log("started.");
+
+    //clear
+    window.clearInterval(window.myTime);
+    console.log(!!window.myTime);
+
+    //demo
+    window.click_showCapt_time = 5 * 1000;
+    window.click_closeBox_time = 2 * 1000;
+    console.log("started");
+    window.myTime = window.setInterval(window.click_showCapt, click_showCapt_time);
+
+    function showCapt() {
+    }
+    function closeBox() {
+    }
+</script>
+
+<body>
+<p id="giftT">5积分</p>
+</body>
+</html>
