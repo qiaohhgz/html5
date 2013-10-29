@@ -6,34 +6,42 @@
 </head>
 
 <script type="text/javascript">
-    window.click_showCapt_time = 17 * 60 * 1000;
-    window.click_closeBox_time = 15 * 1000;
+    window.click_showCapt_time = 15 * 60 * 1000;
+    window.click_closeBox_time = 5 * 1000;
+    window.clearMyTimes = function () {
+        window.clearTimeout(window.showCapt_time);
+        window.clearTimeout(window.closeBox_time);
+        if(!!window.showCapt_time){
+            console.log("clear show capt time success");
+        }
+        if(!!window.closeBox_time){
+            console.log("clear close box time success");
+        }
+    };
     window.click_showCapt = function () {
         showCapt();
         console.log("click show capt.");
-        window.setTimeout(window.click_closeBox, click_closeBox_time);
+        window.showCapt_time = window.setTimeout(window.click_closeBox, click_closeBox_time);
     };
     window.click_closeBox = function () {
         var result = document.getElementById("giftT").innerHTML;
         console.log("result = " + result);
         closeBox();
         console.log("click close box.");
+        window.closeBox_time = window.setTimeout(window.click_showCapt, click_showCapt_time);
     };
-    window.click_showCapt();
-    window.setTimeout(window.click_closeBox, click_closeBox_time);
+
     console.log("start auto click...");
-    window.myTime = window.setInterval(window.click_showCapt, window.click_showCapt_time);
+    window.click_showCapt();
     console.log("started.");
 
     //clear
-    window.clearInterval(window.myTime);
-    console.log(!!window.myTime);
+    window.clearMyTimes();
 
     //demo
     window.click_showCapt_time = 5 * 1000;
     window.click_closeBox_time = 2 * 1000;
-    console.log("started");
-    window.myTime = window.setInterval(window.click_showCapt, click_showCapt_time);
+    window.click_showCapt();
 
     function showCapt() {
     }
@@ -42,6 +50,6 @@
 </script>
 
 <body>
-<p id="giftT">5积分</p>
+<textarea id="giftT" rows="10" cols="25">5积分</textarea>
 </body>
 </html>
