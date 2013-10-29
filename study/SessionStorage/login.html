@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>简单表单示例</title>
+    <script type="text/javascript">
+        function login() {
+            var u = {};
+            u.username = document.getElementById("username").value;
+            u.age = document.getElementById("age").value;
+            u.birthday = document.getElementById("birthday").value;
+            u.email = document.getElementById("email").value;
+            u.telephone = document.getElementById("telephone").value;
+            u.homepage = document.getElementById("homepage").value;
+
+            var userJson = JSON.stringify(u);
+            console.log(userJson);
+            localStorage.sessionUser = userJson;
+            load();
+        }
+
+        function load() {
+            var userJson = localStorage.sessionUser;
+            var infoSection = document.getElementById("info");
+            if (userJson) {
+                var u = JSON.parse(userJson);
+                document.getElementById("sessionName").innerHTML = u.username;
+                document.getElementById("userAge").innerHTML = "Age:" + u.age;
+                document.getElementById("userBirthday").innerHTML = "Birthday:" + u.birthday;
+                document.getElementById("userEmail").innerHTML = "Email:" + u.email;
+                document.getElementById("userTelephone").innerHTML = "Telephone:" + u.telephone;
+                document.getElementById("userHomepage").innerHTML = "HomePage:" + u.homepage;
+                infoSection.setAttribute("style", "display:block");
+            } else {
+                infoSection.setAttribute("style", "display:none");
+            }
+        }
+
+        window.onload = load;
+    </script>
+</head>
+<body>
+
+<form id="registerForm" onsubmit="">
+    <label>姓名：<input type="text" name="username" id="username" required pattern="^\w.*$"/></label> <br>
+    <label>年龄：<input type="number" name="age" id="age" min="0" max="100" required/></label> <br>
+    <label>出生日期：<input type="date" name="birthday" id="birthday" required/></label> <br>
+    <label>Email：<input type="email" name="email" id="email" required/></label> <br>
+    <label>联系方式：<input type="tel" name="telephone" id="telephone" pattern="[0-9]{11}" required/></label> <br>
+    <label>个人主页：<input type="url" name="homepage" id="homepage" required/></label> <br>
+    <input type="button" value="登陆" onclick="login()"/>
+    <input type="reset" value="重填"/>
+    <input type="button" value="安全退出" onclick="localStorage.clear();load()"/>
+</form>
+
+<details id="info">
+    <summary id="sessionName"></summary>
+    <div id="userAge"></div>
+    <div id="userBirthday"></div>
+    <div id="userEmail"></div>
+    <div id="userTelephone"></div>
+    <div id="userHomepage"></div>
+</details>
+</body>
+</html>

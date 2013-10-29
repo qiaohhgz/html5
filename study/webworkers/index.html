@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8"/>
+    <title>从1到给定数值的求和示例</title>
+    <style type="text/css">
+        #loading {
+            position: fixed;
+            left: 40%;
+            top: 40%;
+        }
+    </style>
+</head>
+<script type="text/javascript">
+
+    function workerOnMessage(event) {
+        if (event.data) {
+            var str = "合计值为：" + event.data;
+            document.getElementById("output").innerHTML = str;
+            console.log(str);
+        }
+    }
+    function beforePostMessage() {
+        document.getElementById("loading").style.display = "block";
+        console.log("开始");
+    }
+    function afterPostMessage() {
+        document.getElementById("loading").style.display = "none";
+        console.log("完成");
+    }
+    function getRequestBean() {
+        var v = document.getElementById("num").value;
+        return v;
+    }
+    function calculateDelegate() {
+        var worker = new Worker("calculate.js");
+        var request = getRequestBean();
+        if (request) {
+            beforePostMessage();
+            worker.postMessage(request);
+            worker.onmessage = function (event) {
+                workerOnMessage(event);
+                afterPostMessage();
+            }
+            worker.onerror = function (event) {
+                console.error(event.message);
+                afterPostMessage();
+            }
+        }
+
+    }
+</script>
+<body>
+<header>
+    <h1>从1到给定数值的求和示例</h1>
+</header>
+输入数值：<input type="number" name="num" id="num" min="0" step="100"/><button onclick="calculateDelegate()">Calculate</button>
+<span id="output"></span>
+
+<div id="loading" style="display: none">
+    <img src="http://www.poluoluo.com/jzxy/UploadFiles_333/201207/2012070716140572.jpg" alt="" width="200px"
+         height="200px"/>
+</div>
+</body>
+</html>

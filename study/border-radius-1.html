@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Rounded corners</title>
+    <style type="text/css">
+        .button {
+            width: 100px;
+            height: 25px;
+            border: solid 2px blue;
+
+            border-radius: 0px;
+        }
+    </style>
+    <script type="text/javascript">
+        function changeRadius(val, pro,l) {
+            document.getElementById(l).innerHTML = val;
+            var e = document.getElementById("login");
+            var js = "e.style." + pro + " = '" + val + "px'";
+            console.log(js);
+            eval(js);
+        }
+    </script>
+</head>
+<body>
+width : <span id="ws"></span>px;<input type="range" min="1" max="500" value="100" style="width: 500px" onchange="changeRadius(this.value,'width','ws')"/>
+<br/>
+height : <span id="hs"></span>px;<input type="range" min="1" max="500" value="25" style="width: 500px" onchange="changeRadius(this.value,'height','hs')"/>
+<br/>
+border - radius : <span id="brs"></span>px;<input type="range" min="1" max="500" value="0" style="width: 500px" onchange="changeRadius(this.value,'borderRadius','brs')"/>
+<br/>
+<div class="button" id="login"></div>
+</body>
+</html>

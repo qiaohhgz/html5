@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>简单表单示例</title>
+    <script type="text/javascript">
+        function check() {
+            var email = document.getElementById("email");
+            console.log(email.validity.valid);
+
+            if (email.value == "") {
+                alert("请输入Email地址");
+                return false;
+            } else if (!email.checkValidity()) {
+                alert("请输入正确的Email地址");
+                return false;
+            } else {
+                alert("您输入的Email地址有效");
+            }
+        }
+    </script>
+</head>
+<body>
+<form id="registerForm" onsubmit="return check()">
+    <label>姓名：<input type="text" name="username" id="username" required pattern="^\w.*$"/></label> <br>
+    <label>年龄：<input type="number" name="age" id="age" min="0" max="100" required/></label> <br>
+    <label>出生日期：<input type="date" name="birthday" id="birthday" required/></label> <br>
+    <label>Email：<input type="email" name="email" id="email" required/></label> <br>
+    <label>联系方式：<input type="tel" name="telephone" id="telephone" pattern="[0-9]{11}" required/></label> <br>
+    <label>个人主页：<input type="url" name="homepage" id="homepage" required/></label> <br>
+    <label>个人简介：<textarea type="text" name="description" id="description" required></textarea></label> <br>
+    <input type="submit" value="注册" formmethod="post"/>
+    <input type="submit" value="使用自己的验证" formnovalidate/>
+</form>
+</body>
+</html>

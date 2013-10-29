@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Html tag</title>
+    <meta charset="utf-8">
+    <style type="text/css">
+        section {
+            border: solid 1px gray;
+            padding-top: 10px;
+            padding-left: 10px;
+            padding-bottom: 10px;
+        }
+    </style>
+</head>
+<body>
+<script type="text/javascript">
+    function changeDesignMode(v) {
+        console.log(v);
+        document.designmode = v;
+    }
+</script>
+<article>
+    <header>
+        <h1>IPhone</h1>
+        <p>发布日期:<time pubdate="pubdate" datetime="2010/10/09">2010/10/09</time></p>
+        Design Mode:
+        <select onchange="changeDesignMode(this.value)">
+            <option value="on">On</option>
+            <option value="off" selected>Off</option>
+        </select>
+    </header>
+</article>
+<form id="searchForm" name="searchForm" action="http://www.baidu.com/s" method="get"></form>
+<details open>
+    <summary>label</summary>
+    <label>Search On
+        <select name="engine" form="searchForm">
+            <option value="baidu">Baidu</option>
+            <option value="bing">Bing</option>
+            <option value="Google">Google</option>
+        </select>
+        :<input type=text autofocus form="searchForm" name="wd" required></label>
+    <button type="submit" form="searchForm">Search</button>
+</details>
+
+<details open>
+    <summary>Form</summary>
+    <form name="reg" action="#" method="post">
+        <section>
+            <label>User Name:<input type=text name="userName" required placeholder="这是输入用户名..."></label>
+        </section>
+        <section>
+            <label>Girl:<input type=radio name="sex" required></label>
+            <label>Boy:<input type=radio name="sex" required></label>
+        </section>
+        <section>
+            <label>Birthday:<input type=date name="birthday" required></label>
+        </section>
+        <section>
+            <label>Month:<input type=month name="month"></label>
+        </section>
+        <section>
+            <label>Week:<input type=week name="week"></label>
+        </section>
+        <section>
+            <label>Date Time:<input type=time name="dateTime"></label>
+        </section>
+        <section>
+            <label>Email:<input type=email name="email" required></label>
+        </section>
+        <section>
+            <label>Url:<input type=url name="url" required></label>
+        </section>
+        <section>
+            <label>Number:<input type=number name="number"></label>
+        </section>
+        <section>
+            <label>Range:<input type=range name="range" required></label>
+        </section>
+        <section>
+            <label>State:
+                <select name="state" required>
+                    <option>China</option>
+                    <option>America</option>
+                    <option>England</option>
+                </select>
+            </label>
+        </section>
+        <section>
+            <label>Like:
+                <select name="like" required multiple>
+                    <option>Watch TV</option>
+                    <option>Computer Game</option>
+                    <option>Badminton</option>
+                    <option>Watch TV</option>
+                    <option>Computer Game</option>
+                    <option>Badminton</option>
+                    <option>Watch TV</option>
+                    <option>Computer Game</option>
+                    <option>Badminton</option>
+                </select>
+            </label>
+        </section>
+        <section>
+            <label><input type=checkbox name="article" required>申请条款</label>
+        </section>
+        <section>
+            <label><input type=file name="picture" required>头像</label>
+        </section>
+        <section>
+            <label><input type=file name="attachments" required multiple>附件</label>
+        </section>
+        <section>
+            <button type="submit">Register</button>
+            <button type="reset">Reset</button>
+        </section>
+    </form>
+</details>
+
+<details open>
+    <summary contenteditable>figure</summary>
+    <figure>
+        <figcaption>PRC</figcaption>
+        <p>The People's Republic of
+            <mark>China</mark>
+            was born in 1949...
+        </p>
+    </figure>
+</details>
+
+<details open>
+    <summary>progress</summary>
+    <meter value="10" max="25"></meter>
+</details>
+
+<details open>
+    <summary>wbr</summary>
+    <p>To learn AJAX, you must be fami
+        <wbr>
+        liar with the XMLHttp
+        <wbr>
+        Request Object.
+    </p>
+</details>
+
+<details open>
+    <summary>Html 5</summary>
+    This document teaches you everything you have to learn about
+    <mark>HTML 5</mark>
+    .
+</details>
+
+<details open>
+    <summary>Menu</summary>
+    <menu>
+        <li><label><input type="checkbox">Red</label></li>
+        <li><label><input type="checkbox">blue</label></li>
+    </menu>
+</details>
+
+<details open>
+    <summary>link</summary>
+    <a href="http://ishare.iask.sina.com.cn/download/explain.php?fileid=63033271" media="rar">《挚爱一生》作者：秋夜雨寒.rar</a>
+</details>
+
+
+<footer>
+    <p><small>著作权归****公司所有。</small></p>
+</footer>
+</body>
+</html>

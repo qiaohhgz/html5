@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Canvas</title>
+</head>
+<body>
+<button onclick="clearRoom(); drawLine();">fill line</button>
+<button onclick="clearRoom(); fillBlock();">fill block</button>
+<button onclick="clearRoom(); drawOval();">draw oval</button>
+<button onclick="clearRoom(); fillOval();">fill oval</button>
+<canvas id="room" height="500" width="500">
+    Your browser does not support the canvas element.
+</canvas>
+</body>
+<script type="text/javascript">
+    var g = document.getElementById("room").getContext("2d");
+
+    function drawLine() {
+        g.moveTo(10, 10);
+        g.lineTo(150, 50);
+        g.lineTo(10, 50);
+        g.stroke();
+    }
+
+    function fillBlock() {
+        g.fillStyle = "blue";
+        g.fillRect(0, 0, 150, 75);
+    }
+
+    function drawOval() {
+        g.fillStyle = "green";
+        g.beginPath();
+        g.arc(70, 18, 15, 0, Math.PI * 2, true);
+        g.closePath();
+    }
+
+    function fillOval() {
+        g.fillStyle = "green";
+        g.beginPath();
+        g.arc(70, 18, 15, 0, Math.PI * 2, true);
+        g.closePath();
+        g.fill();
+    }
+
+    function clearRoom() {
+        g.clearRect(0, 0, 500, 500);
+    }
+</script>
+</html>

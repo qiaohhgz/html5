@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Web Sql DataBase</title>
+</head>
+<body>
+
+</body>
+<script type="text/javascript">
+    if(window.openDatabase){
+        var db = window.openDatabase('test', '1.0', 'test database', 5 * 1024 * 1024);
+        db.transaction(function(tx){
+            tx.executeSql('select * from test', [], successCallback, errorCallback);
+        })
+        function successCallback(data){
+            console.log(data);
+            alert('success');
+        }
+        function errorCallback(e){
+            console.error(e);
+            alert('error');
+        }
+    }
+
+</script>
+</html>

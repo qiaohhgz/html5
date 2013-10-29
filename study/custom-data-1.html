@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Custom-data</title>
+</head>
+<body>
+<div id="user" data-id="good" data-age="18" data-name="jim" data-screen-name="user1"></div>
+<script type="text/javascript">
+    var el = document.querySelector("#user");
+    el.setAttribute("data-foo", "bar");
+
+    var html = [];
+    for (var key in el.dataset) {
+        html.push(key, ': ', el.dataset[key], '<br>');
+    }
+    el.innerHTML = html.join('');
+</script>
+</body>
+</html>

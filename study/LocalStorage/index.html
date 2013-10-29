@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>简单web留言本</title>
+</head>
+<script type="text/javascript">
+    function saveStorage() {
+        var data = document.getElementById("content").value;
+        if (data) {
+            var key = new Date().getTime() + "";
+            localStorage.setItem(key, data);
+            loadStorage();
+        }
+    }
+
+    function loadStorage() {
+        var result = "<table border=1>";
+        for (var i = 0; i < localStorage.length; i++) {
+            var key = localStorage.key(i);
+            var value = localStorage.getItem(key);
+            var date = new Date();
+            date.setTime(parseInt(key));
+            var dateStr = date;
+            result += "<tr><td>" + value + "</td><td>" + dateStr + "</td></tr>"
+        }
+        result += "</table>";
+        var target = document.getElementById("storage");
+        target.innerHTML = result;
+
+    }
+
+    function clearStorage() {
+        localStorage.clear();
+        loadStorage();
+    }
+
+    function saveObjectAsJsonToLocalStorage() {
+        var o = {name: "jim", age: 18};
+        var json = JSON.stringify(o);
+        alert(json);
+        var newObj = JSON.parse(json);
+
+    }
+
+    window.onload = saveObjectAsJsonToLocalStorage;
+</script>
+<body>
+<header>
+    <h1>简单web留言本</h1>
+</header>
+<textarea id="content" cols="50" rows="10"></textarea><br>
+<button onclick="saveStorage()">追加</button>
+<button onclick="clearStorage()">初始化</button>
+<section id="storage"></section>
+</body>
+</html>

@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>input data source</title>
+</head>
+<script type="text/javascript">
+
+    function search(e, o) {
+        //console.log(e.keyCode);
+        if (e.keyCode == 13 && o.value) {//enter
+            addSearchText(o.value);
+            o.value = "";
+        }
+    }
+
+    function addSearchText(v) {
+        var op = document.createElement("option");
+        op.setAttribute("value", v);
+        op.innerHTML = v;
+        var el = document.getElementById("searchHistory");
+        el.appendChild(op);
+        console.log("value = " + op.value + " html = " + op.innerHTML);
+//        printDataList(el);
+    }
+
+    function printDataList(el) {
+        var els = el.getElementsByTagName("option");
+        for (var i in els) {
+            var op = els[i];
+            if(op.value){
+                console.log("value = " + op.value + " html = " + op.innerHTML);
+            }
+        }
+    }
+
+    function clearSearchHistory() {
+        var el = document.getElementById("searchHistory");
+        el.innerHTML = "";
+    }
+</script>
+<body>
+
+Greeting:<input name="greeting" list="greetings" type="text"> <br>
+Book Name:<input name="bookName" list="books" type="text"> <br>
+User Name:<input name="userName" list="names" type="text"> <br>
+Search:<input name="keyword" list="searchHistory" type="text" onkeyup="search(event,this)">
+<button onclick="clearSearchHistory()">clear search history</button><br>
+
+<datalist id="searchHistory" style="display: none"></datalist>
+
+<datalist id="greetings" style="display: none">
+    <option value="Good morning"></option>
+    <option value="Hello"></option>
+    <option value="Good afternoon"></option>
+</datalist>
+
+<datalist id="books" style="display: none">
+    <option value="Java"></option>
+    <option value="Hibernate in action"></option>
+    <option value="Spring in action"></option>
+    <option value="Html 5"></option>
+    <option value="CSS 3"></option>
+</datalist>
+
+<datalist id="names" style="display: none">
+    <option value="jim"></option>
+    <option value="jack"></option>
+    <option value="sally"></option>
+    <option value="kedar"></option>
+    <option value="charis"></option>
+</datalist>
+
+</body>
+</html>
