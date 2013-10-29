@@ -1,30 +1,31 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<title>无标题文档</title>
-<style type="text/css">
-div{
-text-align:center;
-display:inline-block;
-height:50px;
-width:100px;
-margin:5px;
-}
-</style>
-<script type="text/javascript">
-var cs = ["FF3333", "3333FF", "33FF33", "FF7700", "FF33BB", "666666", "FFFF00", "BBFF33"];
-function show(){
-	for(var i=0;i<cs.length;i++){
-	var css = "#"+cs[i];
-		var d = document.createElement("div");
-d.style.backgroundColor = css;
-d.innerHTML = css;
-document.body.appendChild(d);
-		}
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <title>颜色选择</title>
+    <style type="text/css">
+        div {
+            text-align: center;
+            display: inline-block;
+            height: 50px;
+            width: 100px;
+            margin: 5px;
+        }
+    </style>
+    <script type="text/javascript">
+        var cs = ["FF3333", "3333FF", "33FF33", "FF7700", "FF33BB", "666666", "FFFF00", "BBFF33"];
+        function show() {
+            for (var i = 0; i < cs.length; i++) {
+                var css = "#" + cs[i];
+                var d = document.createElement("div");
+                d.style.backgroundColor = css;
+                d.innerHTML = css;
+                document.body.appendChild(d);
+            }
 
-}
-</script>
+        }
+    </script>
 </head>
 
 <body onload="show()">

@@ -7,30 +7,39 @@
 
 <script type="text/javascript">
     window.click_showCapt_time = 15 * 60 * 1000;
-    window.click_closeBox_time = 5 * 1000;
+    window.click_closeBox_time = 10 * 1000;
     window.clearMyTimes = function () {
         window.clearTimeout(window.showCapt_time);
         window.clearTimeout(window.closeBox_time);
-        if(!!window.showCapt_time){
+        if (!!window.showCapt_time) {
             console.log("clear show capt time success");
         }
-        if(!!window.closeBox_time){
+        if (!!window.closeBox_time) {
             console.log("clear close box time success");
+        }
+    };
+    window.printInfo = function () {
+        console.log("window.click_showCapt_time = " + window.click_showCapt_time);
+        console.log("window.click_closeBox_time = " + window.click_closeBox_time);
+        if (!!window.showCapt_time) {
+            console.log("show capt time running...");
+        }
+        if (!!window.closeBox_time) {
+            console.log("close box time running...");
         }
     };
     window.click_showCapt = function () {
         showCapt();
         console.log("click show capt.");
-        window.showCapt_time = window.setTimeout(window.click_closeBox, click_closeBox_time);
+        window.showCapt_time = window.setTimeout(window.click_closeBox, window.click_closeBox_time);
     };
     window.click_closeBox = function () {
         var result = document.getElementById("giftT").innerHTML;
         console.log("result = " + result);
         closeBox();
         console.log("click close box.");
-        window.closeBox_time = window.setTimeout(window.click_showCapt, click_showCapt_time);
+        window.closeBox_time = window.setTimeout(window.click_showCapt, window.click_showCapt_time);
     };
-
     console.log("start auto click...");
     window.click_showCapt();
     console.log("started.");
