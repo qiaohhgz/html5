@@ -1,0 +1,31 @@
+<!doctype html>
+
+<html lang="en">
+<head>
+    <meta charset="utf-8"/>
+    <title>jQuery UI Dialog - Basic modal</title>
+    <script type="text/javascript" src="../../jquery-1.8.2.min.js"></script>
+    <script type="text/javascript" src="../../jquery-ui-1.9.1.custom.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="css/jquery.ui.core.css"/>
+    <link rel="stylesheet" type="text/css" href="css/jquery.ui.dialog.css"/>
+    <!--default theme-->
+    <!--<link rel="stylesheet" type="text/css" href="css/jquery.ui.theme.css"/>-->
+    <script>
+        $(function () {
+            $("#dialog-modal").dialog({
+                height: 300,
+                width: 400,
+                modal: true,
+                resizable: false
+            });
+        });
+    </script>
+</head>
+<body>
+<div id="themeSection"></div>
+
+<div id="dialog-modal" title="Basic modal dialog">
+    <p>Adding the modal overlay screen makes the dialog look more prominent because it dims out the page content.</p>
+</div>
+</body>
+</html>
