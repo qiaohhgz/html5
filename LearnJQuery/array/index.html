@@ -5,9 +5,26 @@
     <title></title>
     <script type="text/javascript" src="../../jquery-1.8.2.min.js"></script>
     <script type="text/javascript">
+        var array = [
+            {id: 1, name: "jim"},
+            {id: 2, name: "jack"},
+            {id: 3, name: "chris"},
+            {id: 3, name: "chris"}
+        ];
         (function ($) {
             $().ready(function () {
+                function isExist(array, o) {
+                    return $.grep(array, function (n, i) {
+                        return n.id == o.id;
+                    }, true);
+                }
 
+                console.log(typeof isExist(array, {id: 5}));
+                console.log(isExist(array, {id: 5}).length);
+                console.log(isExist(array, {id: 2}).length);
+                console.log(isExist(array, {id: 3}).length);
+                console.log(typeof isExist(array, {id: 1}));
+                console.log(typeof isExist(array, {id: 2}));
             });
         })(jQuery);
     </script>

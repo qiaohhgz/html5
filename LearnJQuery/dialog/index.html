@@ -1,9 +1,56 @@
-<!DOCTYPE html>
-<html>
+<!doctype html>
+
+<html lang="en">
 <head>
-    <title></title>
+    <meta charset="utf-8"/>
+    <title>jQuery UI Dialog - Basic modal</title>
+    <script type="text/javascript" src="../../jquery-1.8.2.min.js"></script>
+    <script type="text/javascript" src="../../jquery-ui-1.9.1.custom.min.js"></script>
+    <link rel="stylesheet" href="../resources/demos/css/style.css"/>
+    <link id="themeLink" rel="stylesheet" type="text/css" href="../resources/themes/flick/jquery.ui.theme.css"/>
+    <script>
+        var themeList = ["black-tie", "blitzer", "cupertino", "dark-hive", "dot-luv",
+            "eggplant", "excite-bike", "flick", "hot-sneaks", "humanity",
+            "le-frog", "mint-choc", "overcast", "pepper-grinder", "redmond",
+            "smoothness", "south-street", "start", "sunny", "swanky-purse",
+            "trontastic", "ui-darkness", "ui-lightness", "vader" ];
+        $(function () {
+            $("#dialog-modal").dialog({
+                height: 300,
+                width: 400,
+                modal: true,
+                resizable: false
+            });
+
+            var _select = $("<select></select>").change(function () {
+                $("#themeLink").attr("href", "../resources/themes/" + $(this).val() + "/jquery.ui.theme.css?id=" + Math.random());
+            }).attr("id", "themeSelect");
+            $(themeList).each(function (i) {
+                var _theme = themeList[i];
+                var _el = $("<option></option>").val(_theme).html(_theme);
+                $(_select).append(_el);
+            });
+            var _nextBtn = $("<button></button>").click(function () {
+                var _nextVal = $("#themeSelect option:selected").next().val();
+                $("#themeSelect").val(_nextVal);
+                $("#themeSelect").change();
+            }).html("Next Theme");
+            var _prevBtn = $("<button></button>").click(function () {
+                var _previousVal = $("#themeSelect option:selected").prev().val();
+                $("#themeSelect").val(_previousVal);
+                $("#themeSelect").change();
+            }).html("Previous Theme");
+            $("#themeSection").append("Change theme to :").append(_select).append(_nextBtn).append(_prevBtn);
+
+            $("#dialog-modal").prepend(_prevBtn).prepend(_nextBtn);
+        });
+    </script>
 </head>
 <body>
+<div id="themeSection"></div>
 
+<div id="dialog-modal" title="Basic modal dialog">
+    <p>Adding the modal overlay screen makes the dialog look more prominent because it dims out the page content.</p>
+</div>
 </body>
 </html>

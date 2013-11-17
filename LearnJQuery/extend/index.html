@@ -7,7 +7,34 @@
     <script type="text/javascript">
         (function ($) {
             $().ready(function () {
+                var data = [
+                    {id: 100, name: "abc"},
+                    {id: 101, name: "d"},
+                    {id: 102, name: "ddd"}
+                ];
 
+                var n = [
+                    {id: 102, name: "ddd"}
+                ];
+
+
+                var seletedList = {};
+                for(xxx){
+                    seletedList[String(data[i].id)] = data[i];
+                }
+
+                seletedList[String(n[i].id)] = null;
+
+                for(var item in seletedList){
+                    if(seletedList[item] && seletedList[item].id){
+
+                    }
+                }
+
+                $(seletedList).each(function(){
+                    this.id;
+                });
+                console.log(data);
             });
         })(jQuery);
     </script>

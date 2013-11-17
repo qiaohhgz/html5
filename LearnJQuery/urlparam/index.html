@@ -2,17 +2,52 @@
 <html>
 <head>
     <meta charset="utf-8">
-    <title></title>
-    <script type="text/javascript" src="../../jquery-1.8.2.min.js"></script>
+    <title>get url param</title>
+    <script type="text/javascript" src="http://code.jquery.com/jquery-1.9.1.js"></script>
     <script type="text/javascript">
+        function getUrlParam(key) {
+            var args = window.location.href.split("?");
+            if (args.length > 1) {
+                var params = args[1].split("&");
+                var requestParam = new Array();
+                $(params).each(function (i, value) {
+                    var pos = value.indexOf('=');
+                    if (pos > 0) {
+                        var key = value.substring(0, pos);
+                        var val = value.substring(pos + 1).replace("#", "");
+                        if ($.isArray(requestParam[key])) {//push val
+                            requestParam[key].push(val);
+                        } else if (requestParam[key]) {//convert to array
+                            var firstVal = requestParam[key];
+                            requestParam[key] = [firstVal, val];
+                        } else {//set val
+                            requestParam[key] = val;
+                        }
+                    }
+                });
+                return requestParam[key];
+            }
+        }
         (function ($) {
             $().ready(function () {
-
+                //bind click event
+                $("button").click(function () {
+                    var searchKey = $("input").val();
+                    if (searchKey) {
+                        var urlParam = getUrlParam(searchKey);
+                        if ($.isArray(urlParam)) {
+                            alert(JSON.stringify(urlParam));
+                        } else {
+                            alert(urlParam);
+                        }
+                    }
+                });
             });
         })(jQuery);
     </script>
 </head>
 <body>
-
+<input type="text" placeholder="please enter key"/>
+<button>Get param</button>
 </body>
 </html>

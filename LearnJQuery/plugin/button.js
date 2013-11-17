@@ -1,7 +1,19 @@
-/**
- * Created with IntelliJ IDEA.
- * User: Jim_qiao
- * Date: 11/17/13
- * Time: 10:38 AM
- * To change this template use File | Settings | File Templates.
- */
+(function($){
+    $.fn.myButton= function(settings){
+        //默认参数
+        var defaultSettings = {
+
+        }
+
+        /* 合并默认参数和用户自定义参数 */
+        settings = $.extend(defaultSettings,settings);
+
+        return this.each(function(event){
+            $(this).click(function(event){
+                alert($(this).html());
+            });
+        });
+
+    }
+
+})(jQuery);

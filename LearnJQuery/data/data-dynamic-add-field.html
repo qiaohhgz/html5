@@ -4,14 +4,19 @@
     <meta charset="utf-8">
     <title></title>
     <style type="text/css">
-        .trimAll {
+        .blueBtn {
             cursor: pointer;
             width: 100px;
-            border: solid 2px blue;
+            border: solid 2px #418fde;
             color: #fff;
             display: block;
-            background-color: #888;
+            background-color: #418fde;
             text-align: center;
+        }
+
+        .blueBtn:active {
+            border: solid 2px #307ecb;
+            background-color: #307ecb;
         }
     </style>
     <script type="text/javascript" src="../../jquery-1.8.2.min.js"></script>
@@ -22,6 +27,7 @@
             heading: {target: ".info .heading", type: "array"},
             services: {target: ".info .services", type: "array"}
         };
+
         var request = {};
         function set(field) {
             var bean = eval("meta." + field);
@@ -29,7 +35,7 @@
                 eval("request." + field + "=[];");
                 $(bean.target).each(function () {
                     var _v = $.trim($(this).val());
-                    if (_v) {
+                    if (_v && $(this).attr("checked")) {
                         eval("request." + field + ".push(\"" + _v + "\")");
                     } else {
                         $(this).val(_v);//auto trim value
@@ -67,16 +73,18 @@
     Tel: <input type="tel" class="telephone"><br>
     Tel: <input type="tel" class="telephone"><br>
     Tel: <input type="tel" class="telephone"><br>
-    Heading: <input type="text" class="heading"><br>
-    Heading: <input type="text" class="heading"><br>
-    Heading: <input type="text" class="heading"><br>
-    Services: <input type="text" class="services"><br>
-    Services: <input type="text" class="services"><br>
-    Services: <input type="text" class="services"><br>
-    Services: <input type="text" class="services"><br>
-    Services: <input type="text" class="services"><br>
+
+    <label>Heading: <input type="checkbox" name="heading" class="heading" value="1111"></label><br>
+    <label>Heading: <input type="checkbox" name="heading" class="heading" value="2222"></label><br>
+    <label>Heading: <input type="checkbox" name="heading" class="heading" value="3333"></label><br>
+
+    <label> Services: <input type="checkbox" name="services" class="services" value="11"></label><br>
+    <label> Services: <input type="checkbox" name="services" class="services" value="22"></label><br>
+    <label> Services: <input type="checkbox" name="services" class="services" value="33"></label><br>
+    <label> Services: <input type="checkbox" name="services" class="services" value="44"></label><br>
+    <label> Services: <input type="checkbox" name="services" class="services" value="55"></label><br>
 </div>
-<div class="trimAll">Trim All</div>
+<div class="trimAll blueBtn">Trim All</div>
 <div id="beanInfo"></div>
 </body>
 </html>

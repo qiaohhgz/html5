@@ -4,6 +4,56 @@
     <title></title>
 </head>
 <body>
+<script>
+    function Student() {
+        var id = 1000;               //private
+        this.name = "Jim";         //public
+        function run() {   //private
+            //code
+            console.log("run");
+        }
 
+        function _stop() {         //private
+            //code
+            console.log("_stop");
+        }
+
+        this.say = function () {   //public
+            //code
+            console.log("say");
+        }
+    }
+    var s = new Student();
+    console.log("s.id = " + !!s.id);
+    console.log("s.name = " + !!s.name);
+    console.log("s.run = " + !!s.run);
+    console.log("s._stop = " + !!s._stop);
+    console.log("s.say = " + !!s.say);
+</script>
+
+<pre>
+    function Student(){
+    var id = 1000; //private
+    this.name = "Jim"; //public
+    function run(){ //private
+    //code
+    console.log("run");
+    }
+    function _stop(){ //private
+    //code
+    console.log("_stop");
+    }
+    this.say = function(){ //public
+    //code
+    console.log("say");
+    }
+    }
+    var s = new Student();
+    console.log("s.id = "+!!s.id);
+    console.log("s.name = "+!!s.name);
+    console.log("s.run = "+!!s.run);
+    console.log("s._stop = "+!!s._stop);
+    console.log("s.say = "+!!s.say);
+</pre>
 </body>
 </html>

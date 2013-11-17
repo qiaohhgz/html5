@@ -2,17 +2,32 @@
 <html>
 <head>
     <meta charset="utf-8">
-    <title></title>
+    <title>data demo</title>
+    <style>
+        div {
+            color: blue;
+        }
+        span {
+            color: red;
+        }
+    </style>
     <script type="text/javascript" src="../../jquery-1.8.2.min.js"></script>
     <script type="text/javascript">
         (function ($) {
             $().ready(function () {
-
+                $( "div" ).data( "test", { first: 16, last: "pizza!" } );
+                $( "span:first" ).text( $( "div" ).data( "test" ).first );
+                $( "span:last" ).text( $( "div" ).data( "test" ).last );
             });
         })(jQuery);
     </script>
 </head>
 <body>
-
+<div>
+    The values stored were
+    <span></span>
+    and
+    <span></span>
+</div>
 </body>
 </html>

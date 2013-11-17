@@ -1,0 +1,18 @@
+.ui-state-default {
+    border: 1px solid #418FDE;
+    background: url("../images/plus.png") no-repeat scroll right center #FFFFFF;
+    font-weight: normal;
+    color: #418FDE;
+}
+
+.ui-state-active {
+    border: 1px solid #418FDE;
+    background: url("../images/minus.png") no-repeat scroll right center #418FDE;
+    font-weight: normal;
+    color: #FFF;
+}
+
+.ui-widget-content {
+    border: 1px solid #418FDE;
+    color: #222222;
+}

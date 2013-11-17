@@ -20,10 +20,13 @@
         }
     </style>
     <script type="text/javascript" src="../../jquery-1.8.2.min.js"></script>
+    <script type="text/javascript" src="data.js"></script>
     <script type="text/javascript">
+        var request = getRequestData();
+
         var meta = {
-            name: {target: ".info .name", type: "string"},
-            telephone: {target: ".info .telephone", type: "array"},
+            name: {target: ".info .name"},
+            address: {target: ".info .address"},
             heading: {target: ".info .heading", type: "array"},
             services: {target: ".info .services", type: "array"}
         };
@@ -41,7 +44,7 @@
                         $(this).val(_v);//auto trim value
                     }
                 });
-            } else if (bean.type = "string") {
+            } else {
                 var _val = $(bean.target).val();
                 eval("request." + field + "=\"" + _val + "\";");
             }
@@ -53,38 +56,43 @@
         }
         (function ($) {
             $().ready(function () {
-                $("input").each(function () {
-                    $(this).change(function () {
-                        set($(this).attr("class"));
+                $(".info .blueBtn").click(function () {
+                    $(".info input").each(function () {
+                        set($(this).attr("name"));
                     });
                 });
-                $(".trimAll").click(function () {
-                    $("input").each(function () {
-                        $(this).val($.trim($(this).val()));
-                    });
-                })
             });
         })(jQuery);
     </script>
 </head>
 <body>
-<div class="info">
-    Name: <input type="text" class="name"><br>
-    Tel: <input type="tel" class="telephone"><br>
-    Tel: <input type="tel" class="telephone"><br>
-    Tel: <input type="tel" class="telephone"><br>
+<div class="main">
+    <div class="info">
+        <label>Name: <input type="text" name="name" class="name"></label><br>
+        <label>Address: <input type="text" name="address" class="address"></label><br>
+        <label>Url: <input type="text" name="url" class="url"></label><br>
 
-    <label>Heading: <input type="checkbox" name="heading" class="heading" value="1111"></label><br>
-    <label>Heading: <input type="checkbox" name="heading" class="heading" value="2222"></label><br>
-    <label>Heading: <input type="checkbox" name="heading" class="heading" value="3333"></label><br>
+        <div class="blueBtn">Add</div>
+    </div>
 
-    <label> Services: <input type="checkbox" name="services" class="services" value="11"></label><br>
-    <label> Services: <input type="checkbox" name="services" class="services" value="22"></label><br>
-    <label> Services: <input type="checkbox" name="services" class="services" value="33"></label><br>
-    <label> Services: <input type="checkbox" name="services" class="services" value="44"></label><br>
-    <label> Services: <input type="checkbox" name="services" class="services" value="55"></label><br>
+    <div class="headingArea">
+        <label>Heading: <input type="checkbox" name="heading" class="heading" value="1111"></label><br>
+        <label>Heading: <input type="checkbox" name="heading" class="heading" value="2222"></label><br>
+        <label>Heading: <input type="checkbox" name="heading" class="heading" value="3333"></label><br>
+
+        <div class="blueBtn">Add</div>
+    </div>
+
+    <div class="servicesArea">
+        <label> Services: <input type="checkbox" name="services" class="services" value="11"></label><br>
+        <label> Services: <input type="checkbox" name="services" class="services" value="22"></label><br>
+        <label> Services: <input type="checkbox" name="services" class="services" value="33"></label><br>
+        <label> Services: <input type="checkbox" name="services" class="services" value="44"></label><br>
+        <label> Services: <input type="checkbox" name="services" class="services" value="55"></label><br>
+
+        <div class="blueBtn">Add</div>
+    </div>
 </div>
-<div class="trimAll blueBtn">Trim All</div>
 <div id="beanInfo"></div>
 </body>
 </html>
