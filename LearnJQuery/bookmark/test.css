@@ -1,0 +1,6 @@
+body {
+    position: fixed;
+    width: 300px;
+    height: 200px;
+    border: solid 2px blue;
+}

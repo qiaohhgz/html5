@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title></title>
+    <script type="text/javascript" src="../../jquery-1.8.2.min.js"></script>
+    <script type="text/javascript">
+        (function ($) {
+            $().ready(function () {
+                $(window).scroll(function (a) {
+                    var finaTop = $(".header").offset().top;
+                    if ($(window).scrollTop() >= finaTop) {
+                        $(".content").addClass("fly");
+                    } else {
+                        $(".content").removeClass("fly");
+                    }
+                });
+            });
+        })(jQuery);
+    </script>
+    <style type="text/css">
+        .header {
+            margin-top: 53px;
+            margin-left: 100px;
+        }
+
+        .content {
+            width: 200px;
+            height: 300px;
+            border: solid 2px blue;
+            background-color: gray;
+        }
+
+        .fly {
+            position: fixed;
+            top: 0;
+        }
+    </style>
+</head>
+<body>
+<div class="header">
+    <div class="content">dasdfasdfasfas</div>
+</div>
+    <pre>
+          sadf
+        fasd
+        fas
+        fsa
+        fdas
+        fda
+        sf
+        safd
+        asf
+        as
+        fas
+        fa
+        sf
+        saf
+        asf
+        as
+        f sadf
+        fasd
+        fas
+        fsa
+        fdas
+        fda
+        sf
+        safd
+        asf
+        as
+        fas
+        fa
+        sf
+        saf
+        asf
+        as
+        f sadf
+        fasd
+        fas
+        fsa
+        fdas
+        fda
+        sf
+        safd
+        asf
+        as
+        fas
+        fa
+        sf
+        saf
+        asf
+        as
+        f sadf
+        fasd
+        fas
+        fsa
+        fdas
+        fda
+        sf
+        safd
+        asf
+        as
+        fas
+        fa
+        sf
+        saf
+        asf
+        as
+        f sadf
+        fasd
+        fas
+        fsa
+        fdas
+        fda
+        sf
+        safd
+        asf
+        as
+        fas
+        fa
+        sf
+        saf
+        asf
+        as
+        f sadf
+        fasd
+        fas
+        fsa
+        fdas
+        fda
+        sf
+        safd
+        asf
+        as
+        fas
+        fa
+        sf
+        saf
+        asf
+        as
+        f sadf
+        fasd
+        fas
+        fsa
+        fdas
+        fda
+        sf
+        safd
+        asf
+        as
+        fas
+        fa
+        sf
+        saf
+        asf
+        as
+        f
+    </pre>
+</body>
+</html>

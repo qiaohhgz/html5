@@ -1,0 +1,40 @@
+<html>
+<head>
+<meta charset="utf-8">
+<title>position-relative</title>
+<style type="text/css">
+div {
+width:200px;
+height:200px;	
+}
+.blue{
+border:solid 1px blue;
+}
+.red{
+border:solid 1px red;
+}
+.relative{position:relative;}
+.absolute{position:absolute; left:50%; top:50%; z-index:1000; margin:-10px -40px;}
+.loading{width:80px; height:20px; background-color:gray;}
+.left{float:left;}
+.right{float:right;}
+</style>
+</head>
+
+<body>
+	<div class="red">
+		<div class="loading relative blue">Loading...1</div>
+	</div>
+
+	<div class="blue relative">
+		<div class="loading absolute blue">Loading...2</div>
+	</div>
+	
+	<div class="blue left relative">Left
+		<div class="loading absolute blue">Left</div>
+	</div>
+	<div class="blue right relative">Right
+		<div class="loading absolute blue">Right</div>
+	</div>
+</body>
+</html>

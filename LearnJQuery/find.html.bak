@@ -15,9 +15,7 @@
                     $("#item-" + index).one("click",function (event) {
                         alert($(this).html());
                         console.log(index);
-                    }).click(function(){
-                    	alert("click");
-                    	});
+                    });
                 }
                 for (var i = 1; i < 5; i++) {
                     addEvent(i);
