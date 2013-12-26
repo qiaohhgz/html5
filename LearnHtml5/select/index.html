@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>Html5 - custom select</title>
+    <style type="text/css">
+        .select-basic {
+            -webkit-appearance: none; /* 外观,外貌 */
+            line-height: 24px;
+            background-color: #ffffff;
+            background-position: right 3px;
+            background-repeat: no-repeat;
+            border: 1px solid #cccccc;
+            border-radius: 3px;
+            padding: 3px;
+            vertical-align: middle;
+            /*width: 150px;*/
+            height: 34px;
+        }
+
+        .select-basic option {
+
+        }
+
+        .button {
+            -webkit-appearance: none; /* 外观,外貌 */
+        }
+
+        .select-basic-icon {
+            padding-right: 27px;
+            background-image: url("images/arraws-select.png");
+        }
+    </style>
+</head>
+<body>
+<select class="select-basic select-basic-icon">
+    <option value="0">请选择-内容过长时-内容过长时-内容过长时</option>
+    <option value="1" style="background-color: deepskyblue; color: white">1</option>
+    <option value="2">2</option>
+    <option value="3">3</option>
+</select>
+
+<select class="se">
+    <optgroup label="公司内部">
+        <option value="mail">企业邮箱</option>
+        <option value="admin">后台管理</option>
+    </optgroup>
+    <optgroup label="邮箱登录">
+        <option value="163">@163.com</option>
+        <option value="126">@126.com</option>
+        <option value="163vip">@vip.163.com</option>
+        <option value="163net">@163.net</option>
+        <option value="qq">@qq.com</option>
+        <option value="hotmail">@hotmail.com</option>
+        <option value="msn">@msn.com</option>
+        <option value="yahoo" >@yahoo.com.cn</option>
+        <option value="188">@188.com</option>
+        <option value="netease">@netease.com</option>
+        <option value="yeah">@yeah.net</option>
+        <option value="sina">@sina.com</option>
+        <option value="sinavip">@vip.sina.com</option>
+        <option value="sohu">@sohu.com</option>
+        <option value="sohunet">@sohu.net</option>
+        <option value="21cn">@21cn.com</option>
+        <option value="21cnnet">@21cn.net</option>
+        <option value="263">@263.net</option>
+        <option value="tom">@tom.com</option>
+        <option value="etang">@etang.com</option>
+        <option value="eyou">@eyou.com</option>
+        <option value="citiz">@citiz.net</option>
+    </optgroup>
+</select>
+<button class="button">Test</button>
+</body>
+</html>

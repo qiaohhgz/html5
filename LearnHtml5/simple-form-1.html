@@ -22,12 +22,13 @@
 </head>
 <body>
 <form id="registerForm" onsubmit="return check()">
+    <label>个人主页：<input type="url" name="homepage" id="homepage" required pattern="([/w-]+/.)+[/w-]+.([^a-z])(/[/w- ./?%&=]*)?|[a-zA-Z0-9/-/.][/w-]+.([^a-z])(/[/w- ./?%&=]*)?"/></label> <br>
     <label>姓名：<input type="text" name="username" id="username" required pattern="^\w.*$"/></label> <br>
     <label>年龄：<input type="number" name="age" id="age" min="0" max="100" required/></label> <br>
     <label>出生日期：<input type="date" name="birthday" id="birthday" required/></label> <br>
     <label>Email：<input type="email" name="email" id="email" required/></label> <br>
     <label>联系方式：<input type="tel" name="telephone" id="telephone" pattern="[0-9]{11}" required/></label> <br>
-    <label>个人主页：<input type="url" name="homepage" id="homepage" required/></label> <br>
+
     <label>个人简介：<textarea type="text" name="description" id="description" required></textarea></label> <br>
     <input type="submit" value="注册" formmethod="post"/>
     <input type="submit" value="使用自己的验证" formnovalidate/>

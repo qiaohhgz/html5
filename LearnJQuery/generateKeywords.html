@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title></title>
+</head>
+<link rel="stylesheet" type="text/css" href="../jquery-ui-1.9.1/css/smoothness/jquery-ui-1.9.1.custom.min.css"/>
+<link rel="stylesheet" type="text/css" href="../lib/jqgrid/ui.jqgrid.css"/>
+
+<script type="text/javascript" src="../jquery-1.8.2.min.js"></script>
+<script type="text/javascript" src="../lib/jquery.dataTables.min.js"></script>
+<script type="text/javascript" src="../lib/jqgrid/jquery.jqGrid.min.js"></script>
+<script type="text/javascript">
+    var beforeTag = "Keywords Sent ";
+    var endTag = "-[RateExceededError";
+    var draft = {};//id:"", desc:"", keywords:[], date:object
+    var oVal;
+    (function ($) {
+        $().ready(function () {
+            $(".generateBtn").click(function () {
+                oVal = $("#keywordsArea").val();
+                var keywords = getKeyword(oVal);
+                printKeyword(keywords);
+            });
+            $(".saveDraft").click(saveDraft);
+            $(".showDraft").click(function () {
+                $.each(draft, function () {
+                    if (this.keywords) {
+                        printKeyword(this.keywords);
+                    }
+                });
+            });
+            $(".clearBelow").click(function () {
+                $("#keywordsArea").val("");
+            });
+            $(".clearDraft").click(function () {
+                draft = {};
+                makeDraftTable();
+            });
+            $("#draftTable").jqGrid({
+                datatype: "local",
+                height: 250,
+                colNames: ['Id', 'Desc', 'Keywords', 'Date'],
+                colModel: [
+                    {name: 'id', index: 'id', width: 100, sorttype: "int"},
+                    {name: 'desc', index: 'desc', width: 150},
+                    {name: 'keywords', index: 'keywords', width: 100, formatter: keywordFormatter},
+                    {name: 'date', index: 'date', width: 450, formatter: dateFormatter}
+                ],
+                caption: "Save Draft History"
+            });
+            $(".saveLocalStorage").click(function(){
+                saveDraft();
+                saveStorage();
+            });
+            $(".loadLocalStorage").click(function(){
+                draft = loadStorage();
+                if(draft){
+                    makeDraftTable(TableType.JqGrid);
+                    makeDraftTable(TableType.Basic);
+                }
+            });
+            $(".clearLocalStorage").click(clearStorage);
+        });
+
+        function getKeyword(oVal) {
+            if (oVal) {
+                var beforeIndex = oVal.indexOf(beforeTag) + beforeTag.length;
+                var endIndex = oVal.indexOf(endTag);
+                var newVal = oVal.substring(beforeIndex, endIndex);
+                var keywords = [];
+                $.each(newVal.split(","), function () {
+                    var keyword = $.trim(this);
+                    keywords.push(keyword);
+                });
+                return keywords;
+            }
+        }
+
+        function saveDraft() {
+            oVal = oVal ? oVal : $("#keywordsArea").val();
+            var keywords = getKeyword(oVal);
+            var desc = $("input.desc").val();
+            var date = new Date();
+            var id = date.getTime();
+            var draftItem = {
+                id: id,
+                desc: $.trim(desc),
+                keywords: keywords,
+                date: date
+            };
+            draft[id] = draftItem;
+            //clear
+            $("input.desc").val("");
+            $("#keywordsArea").val("");
+            //reload table
+            makeDraftTable();
+        }
+
+        function printKeyword(keywords) {
+            var target = $("#keywordsArea");
+            target.val("");
+            $.each(keywords, function () {
+                target.val(target.val() + "\n" + this);
+            });
+            target.val($.trim(target.val()));
+        }
+
+        // ******* make draft table ******* //
+        var TableType = {
+            Basic: 0,
+            DataTables: 1,
+            JqGrid: 2
+        }
+
+        function makeDraftTable(type) {
+            type = type ? type : TableType.JqGrid;
+            switch (type) {
+                case TableType.Basic:
+                    makeDraftByBasicTable();
+                    break;
+                case TableType.DataTables:
+                    makeDraftByDataTables();
+                    break;
+                case TableType.JqGrid:
+                    makeDraftWithJqGrid();
+                    break;
+            }
+        }
+
+        function makeDraftByBasicTable() {
+            var target = $("#draftTable");
+            target.each(function () {
+                var table = $(this);
+                table.html("");
+                $.each(draft, function () {
+                    var text = "id: " + this.id + " keyword: " + this.keywords.length + " date: " + this.date + " desc: " + this.desc;
+                    var item = $("<p></p>").text(text);
+                    table.append(item);
+                });
+            });
+        }
+
+        function makeDraftByDataTables() {
+
+        }
+
+        function keywordFormatter(cellValue, options, rowObject) {
+            if (cellValue) {
+                return cellValue.length;
+            }
+            return "N/A";
+        }
+
+        function dateFormatter(cellValue, options, rowObject) {
+            var date = cellValue;
+            if (date) {
+                var dateStr = date.getFullYear()
+                        + "/" + (date.getMonth() + 1)
+                        + "/" + date.getDate()
+                        + " " + date.getHours()
+                        + ":" + date.getMinutes()
+                        + ":" + date.getSeconds();
+                return dateStr;
+            }
+            return "N/A";
+        }
+
+        function makeDraftWithJqGrid() {
+            $("#draftTable").clearGridData();
+            $.each(draft, function () {
+                $("#draftTable").jqGrid('addRowData', this.id, this);
+            });
+        }
+
+        // ******* end make draft table ******* //
+
+        // ******* local storage ******* //
+        var storageKey = "DraftKey";
+        function saveStorage() {
+            var data = JSON.stringify(draft);
+            if (data) {
+                var key = storageKey;
+                localStorage.setItem(key, data);
+            }
+        }
+
+        function loadStorage() {
+            var jsonStr = localStorage.getItem(storageKey);
+            console.log(jsonStr);
+            if(jsonStr){
+                return JSON.parse(jsonStr);
+            }
+            return null;
+        }
+
+        function clearStorage() {
+            localStorage.clear();
+        }
+
+        // ******* end local storage ******* //
+    })(jQuery);
+</script>
+<body>
+<p>
+    <button class="generateBtn">Format keyword</button>
+    <button class="clearBelow">Clear below</button>
+</p>
+<p>
+    <button class="saveDraft">Format And Save draft</button>
+    <input type="text" class="desc" name="desc" id="desc">
+    <button class="showDraft">Show draft</button>
+    <button class="clearDraft">Clear draft</button>
+</p>
+<p>
+    <button class="saveLocalStorage">Save draft to storage</button>
+    <button class="loadLocalStorage">Load and show storage</button>
+    <button class="clearLocalStorage">Clear local storage</button>
+</p>
+
+
+<textarea name="keywordsArea" id="keywordsArea" cols="150" rows="20">
+</textarea>
+
+<table id="draftTable"></table>
+</body>
+</html>

@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title></title>
+    <script type="text/javascript" src="http://code.jquery.com/jquery-1.10.2.min.js"></script>
+    <script type="text/javascript">
+        (function ($) {
+            $().ready(function () {
+                var ops = {
+                    debug: false,
+                    target: "#dd1",
+                    time: 1515000,
+                    nextTime: 3000,
+                    idObj: {},
+                    idArray: [],
+                    index: 0,
+                    result: [],
+                    resultTemplate: {A: {next: "B"}, B: {next: "C"}, C: {next: "D"}, D: {next: "A"}}
+                };
+                var _r = "A";
+                _r = ops.resultTemplate[_r].next;
+                alert(_r == "B");
+            });
+        })(jQuery);
+    </script>
+</head>
+<body>
+
+</body>
+</html>
